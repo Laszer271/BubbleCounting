@@ -2,6 +2,7 @@ import os
 import collections
 import six
 from PIL import Image
+import numpy as np
 
 def is_iterable(arg):
     return (
