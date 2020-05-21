@@ -1,6 +1,7 @@
 import os
 import collections
 import six
+from PIL import Image
 
 def is_iterable(arg):
     return (
@@ -35,3 +36,15 @@ def get_images_paths(input_path):
                 final_images_paths.append(item)
     
     return final_images_paths
+
+def get_images(paths):
+    images = []
+    for path in paths:
+        img = Image.open(path)
+        images.append(img)
+    return images
+
+def get_arrays(paths):
+    arrays = get_images(paths)
+    arrays = [np.array(image) for image in arrays]
+    return arrays
